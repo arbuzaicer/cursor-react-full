@@ -1,0 +1,40 @@
+@use '../../../../scss/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 745px;
+  height: 430px;
+  border-radius: 50px;
+  padding: 30px 150px;
+  background-color: variables.$main-white;
+
+  h1 {
+    margin-bottom: 36px;
+  }
+
+  input {
+    margin-bottom: 24px;
+  }
+
+  button {
+    width: 270px;
+
+    align-self: center;
+  }
+}
+
+.title {
+  font-size: 55px;
+  color: variables.$head-color;
+}
+
+.bottom-title {
+  margin-top: 20px;
+  text-align: center;
+
+  a {
+    font-weight: 700;
+    color: variables.$head-color;
+  }
+}

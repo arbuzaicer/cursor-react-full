@@ -1,0 +1,11 @@
+@use '../../../scss/variables';
+
+.input {
+  height: 55px;
+  font-size: 24px;
+  text-indent: 50px;
+  border-radius: 20px;
+  background-color: #e6e6e6;
+  color: variables.$head-color;
+  border: 2px solid variables.$border-color;
+}
