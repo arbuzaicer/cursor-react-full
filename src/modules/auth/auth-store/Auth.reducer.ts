@@ -2,7 +2,7 @@ import { AnyAction } from "redux";
 
 import { RootReducerType } from "store/RootReducer";
 
-import { SET_AUTH_TYPE } from "./Auth.actions";
+import { SET_AUTH_TYPE, SET_TOKEN_TYPE } from "./Auth.actions";
 
 const initialState = {
   isAuth: false,
@@ -15,6 +15,13 @@ const AuthReducer = (state = initialState, action: AnyAction) => {
       return {
         ...state,
         isAuth: action.payload,
+      };
+    }
+
+    case SET_TOKEN_TYPE: {
+      return {
+        ...state,
+        token: action.payload,
       };
     }
 

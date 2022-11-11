@@ -24,8 +24,6 @@ const SignUp = () => {
     }
 
     setStorageData({
-      firstName,
-      secondName,
       isAuth: true,
     }).then(() => {
       dispatch(setAuthAction(true));

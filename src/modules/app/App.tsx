@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { localStorageKey } from "common/utils/constants";
 
-import { setAuthAction } from "../auth/auth-store/Auth.actions";
+import { setAuthAction, setTokenAction } from "../auth/auth-store/Auth.actions";
 import Routes from "./Routes";
 
 function App() {
@@ -13,12 +13,14 @@ function App() {
     const dataFromLocalStorage = localStorage.getItem(localStorageKey);
 
     if (dataFromLocalStorage) {
-      const { firstName, secondName, isAuth } = JSON.parse(
-        dataFromLocalStorage
-      );
+      const { token, isAuth } = JSON.parse(dataFromLocalStorage);
 
       if (isAuth) {
         dispatch(setAuthAction(isAuth));
+      }
+
+      if (token) {
+        dispatch(setTokenAction(token));
       }
     }
   }, []);
