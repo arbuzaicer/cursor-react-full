@@ -1,17 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { AppRoutes } from "../../../app/Routes";
-import { AuthContext } from "../../../../common/context/Auth.context";
-import { setStorageData } from "../../../../common/utils/functions";
-import PageLayout from "../../../../common/layout/page-layout/PageLayout";
-import TextField from "../../../../common/components/text-field/TextField";
-import Button from "../../../../common/components/button/Button";
+import Button from "common/components/button/Button";
+import TextField from "common/components/text-field/TextField";
+import PageLayout from "common/layout/page-layout/PageLayout";
+import { setStorageData } from "common/utils/functions";
+import { AppRoutes } from "modules/app/Routes";
 
 import classes from "../sign-in/SingIn.module.scss";
+import { setAuthAction } from "../../auth-store/Auth.actions";
 
 const SignUp = () => {
-  const { signInHandle, setUser } = useContext(AuthContext);
+  const dispatch = useDispatch();
+
   const [firstName, setFirstName] = useState("");
   const [secondName, setSecondName] = useState("");
 
@@ -26,11 +28,7 @@ const SignUp = () => {
       secondName,
       isAuth: true,
     }).then(() => {
-      setUser({
-        firstName,
-        secondName,
-      });
-      signInHandle();
+      dispatch(setAuthAction(true));
     });
   };
 

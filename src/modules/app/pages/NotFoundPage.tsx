@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 
-import PageLayout from "../../../common/layout/page-layout/PageLayout";
+import PageLayout from "common/layout/page-layout/PageLayout";
+
 import { AppRoutes } from "../Routes";
 
 const NotFoundPage = () => {

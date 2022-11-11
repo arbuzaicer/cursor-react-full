@@ -2,7 +2,13 @@ import React from "react";
 
 import classes from "./TextField.module.scss";
 
-const TextField = ({ className, ...props }) => {
+type CustomProps = {
+  className?: string;
+};
+
+type TextFieldProps = CustomProps & JSX.IntrinsicElements["input"];
+
+const TextField = ({ className, ...props }: TextFieldProps) => {
   return <input className={`${classes.input} ${className}`} {...props} />;
 };
 
