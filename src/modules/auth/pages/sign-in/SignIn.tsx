@@ -8,7 +8,7 @@ import PageLayout from "common/layout/page-layout/PageLayout";
 import { setStorageData } from "common/utils/functions";
 import { AppRoutes } from "modules/app/Routes";
 
-import { setAuthAction } from "../../auth-store/Auth.actions";
+import { setAuthAction, setTokenAction } from "../../auth-store/Auth.actions";
 import classes from "./SingIn.module.scss";
 
 const SignIn = () => {
@@ -23,12 +23,24 @@ const SignIn = () => {
       return;
     }
 
+    const testToken = {
+      "X-RapidAPI-Key":
+          "a7477432a5msh121ac36bcab8f65p189851jsn1f6c5b71b87e",
+      "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+    };
+
     setStorageData({
-      firstName,
-      secondName,
+      token: testToken,
       isAuth: true,
     }).then(() => {
       dispatch(setAuthAction(true));
+      dispatch(
+        setTokenAction({
+          "X-RapidAPI-Key":
+            "a7477432a5msh121ac36bcab8f65p189851jsn1f6c5b71b87e",
+          "X-RapidAPI-Host": "open-weather13.p.rapidapi.com",
+        })
+      );
     });
   };
 
